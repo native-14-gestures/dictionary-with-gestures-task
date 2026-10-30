@@ -1,3 +1,4 @@
+
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { useSelector } from "react-redux";
 
@@ -11,6 +12,7 @@ function LearningNavigation() {
 
   return (
     <Drawer.Navigator
+      initialRouteName="Play"
       screenOptions={{
         headerTitleStyle: { fontWeight: "800" },
         headerTintColor: colors.primary900,
@@ -27,11 +29,22 @@ function LearningNavigation() {
         drawerInactiveTintColor: colors.fontMain,
         drawerActiveTintColor: colors.primary100,
         drawerActiveBackgroundColor: colors.primary300,
-        contentStyle: { backgroundColor: colors.appBackground },
+        contentStyle: {
+          backgroundColor: colors.appBackground,
+        },
       }}
     >
-      <Drawer.Screen name="Statistics" component={Statistics} />
-      <Drawer.Screen name="Play" component={Play} />
+      <Drawer.Screen
+        name="Play"
+        component={Play}
+        options={{ title: "Play" }}
+      />
+
+      <Drawer.Screen
+        name="Statistics"
+        component={Statistics}
+        options={{ title: "Statistics" }}
+      />
     </Drawer.Navigator>
   );
 }
